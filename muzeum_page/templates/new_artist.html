@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="../static/style.css"/>
+<header class="header" style="background-image: url('../static/images/bg_magazine.jpg')">
+<div>
+  <h3 class="light-text">Dodawanie artysty</h3>
+  <div>
+    {% with msgs = get_flashed_messages() %}
+      {% if msgs %}
+        <div class="light-text" style="color: red">
+          {% for msg in msgs %}
+            {{ msg }}
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+  </div>
+  <h6 class="light-text">*pola obowiazkowe</h6><br>
+  <div>
+    <form method="POST" action="{{ url_for('main.new_artist') }}">
+      <div class="form-group">
+        <label class="light-text" for="name">Nazwisko *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="Podaj nazwisko"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="light-text" for="birth_year">Rok urodzenia *</label>
+        <input
+          type="number"
+          class="form-control"
+          id="birth_year"
+          name="birth_year"
+          placeholder="Podaj rok urodzenia"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="light-text" for="death_year">Rok smierci</label>
+        <input
+          type="number"
+          class="form-control"
+          id="death_year"
+          name="death_year"
+          placeholder="Podaj rok urodzenia"
+        />
+      </div>
+      <h5 class="light-text">Kazdy artysta musi miec swoje dzielo, dodaj je:</h5>
+      <div class="form-group">
+        <label class="light-text" for="title">Tytul *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          placeholder="Podaj tytul"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="light-text" for="etype">Typ *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="etype"
+          name="etype"
+          placeholder="Podaj typ"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="light-text" for="height">Wysokosc *</label>
+        <input
+          type="number"
+          min="1"
+          class="form-control"
+          id="height"
+          name="height"
+          placeholder="Podaj wysokosc"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="light-text" for="width">Szerokosc *</label>
+        <input
+          type="number"
+          min="1"
+          class="form-control"
+          id="width"
+          name="width"
+          placeholder="Podaj szerokosc"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="light-text">Galeria</label><br>
+        {{ form.csrf_token }}
+        {{ form.galleries }}
+      </div>
+      <button type="submit" class="btn btn-secondary">Dodaj</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
