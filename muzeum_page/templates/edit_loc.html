@@ -3,32 +3,33 @@
 <link rel="stylesheet" href="../static/style.css"/>
 <header class="header" style="background-image: url('../static/images/bg_magazine.jpg')">
 <div>
-  <h4 class="light-text">Edycja lokalizacji</h4>
-  <div>
-    {% with msgs = get_flashed_messages() %}
-      {% if msgs %}
-        <div class="light-text" style="color: red">
-          {% for msg in msgs %}
-            {{ msg }}
-          {% endfor %}
-        </div>
-      {% endif %}
-    {% endwith %}
-  </div><br>
-  <div>
-    <form method="POST" action="{{ url_for('main.edit_loc_post') }}">
-      <h5 class="light-text">Wybierz eksponat, ktorego lokalizacje chcesz zmienic.</h5>
-      <div class="form-group">
-        {{ form.csrf_token }}
-        {{ form.exhibits }}
-      </div>
-      <h5 class="light-text">Wybierz nowa lokalizacje:</h5>
-      <div class="form-group">
-        {{ form.csrf_token }}
-        {{ form.galleries }}
-      </div>
-      <button type="submit" class="btn btn-secondary">Potwierdz</button>
-    </form>
-  </div>
+    <h4 class="light-text">Edycja lokalizacji</h4>
+    <div>
+        {% with msgs = get_flashed_messages() %}
+        {% if msgs %}
+            <div class="light-text" style="color: red">
+                {% for msg in msgs %}
+                {{ msg }}
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+    <br>
+    <div>
+        <form method="POST" action="{{ url_for('main.edit_loc_post') }}">
+            <h5 class="light-text">Wybierz eksponat, ktorego lokalizacje chcesz zmienic.</h5>
+            <div class="form-group">
+                {{ form.csrf_token }}
+                {{ form.exhibits }}
+            </div>
+            <h5 class="light-text">Wybierz nowa lokalizacje:</h5>
+            <div class="form-group">
+                {{ form.csrf_token }}
+                {{ form.galleries }}
+            </div>
+            <button type="submit" class="btn btn-secondary">Potwierdz</button>
+        </form>
+    </div>
 </div>
 {% endblock %}

@@ -3,15 +3,15 @@
 <link rel="stylesheet" href="../static/style.css"/>
 <header class="header" style="background-image: url('../static/images/bg_history.jpg')">
 <div>
-  <h4 class="light-text">Wybierz eksponat, aby zobaczyc historie jego ekspozycji.</h4><br>
-  <div>
-    <form method="POST" action="{{ url_for('main.history_post') }}">
-      <div class="form-group">
-        {{ form.csrf_token }}
-        {{ form.exhibits }}
-        <button type="submit" class="btn btn-secondary">Wybierz</button>
-      </div>
-    </form>
-  </div>
+    <h4 class="light-text">Wybierz eksponat, aby zobaczyc historie jego ekspozycji.</h4><br>
+    <div>
+        <form method="POST" action="{{ url_for('main.history_post') }}">
+            <div class="form-group">
+                {{ form.csrf_token }}
+                {{ form.exhibits }}
+                <button type="submit" class="btn btn-secondary">Wybierz</button>
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}

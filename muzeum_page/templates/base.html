@@ -1,74 +1,74 @@
 <html>
-  <head>
+<head>
     <title>Muzeum</title>
     <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"
     />
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a id="logo"
-         class="navbar-brand"
-         style="font-weight: 700; font-family: sans-serif; color: antiquewhite;"
-         href="{{ url_for('main.index') }}">Muzeum</a>
-      <button class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a id="logo"
+       class="navbar-brand"
+       style="font-weight: 700; font-family: sans-serif; color: antiquewhite;"
+       href="{{ url_for('main.index') }}">Muzeum</a>
+    <button class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <form class="form-inline my-2 my-lg-0">
-          {% if current_user.is_authenticated %}
-          <a
-            href="{{ url_for('main.new') }}"
-            class="btn btn-secondary"
-            role="button"
-            >Dodaj</a
-          >
-          <a
-            href="{{ url_for('main.edit_loc') }}"
-            class="btn btn-secondary"
-            role="button"
-            >Edytuj lokalizacje</a
-          >
-          <a
-            href="{{ url_for('main.history') }}"
-            class="btn btn-secondary"
-            role="button"
-            >Historia</a
-          >
-          <a
-            href="{{ url_for('main.erd') }}"
-            class="btn btn-secondary"
-            role="button"
-            >ERD</a
-          >
-          <a
-            href="{{ url_for('main.script') }}"
-            class="btn btn-secondary"
-            role="button"
-            >Skrypt</a
-          >
-          {% endif %}
-          {% if not current_user.is_authenticated %}
-          <a
-            href="{{ url_for('auth.login') }}"
-            class="btn btn-secondary"
-            style="position: absolute; right: 20px;"
-            role="button"
-            >Zaloguj</a
-          >
-          {% endif %}
-          {% if current_user.is_authenticated %}
-          <a
-            href="{{ url_for('auth.logout') }}"
-            class="btn btn-danger"
-            role="button"
-            >Wyloguj</a
-          >
-          {% endif %}
+            {% if current_user.is_authenticated %}
+                <a
+                    href="{{ url_for('main.new') }}"
+                    class="btn btn-secondary"
+                    role="button"
+                >Dodaj</a
+                >
+                <a
+                    href="{{ url_for('main.edit_loc') }}"
+                    class="btn btn-secondary"
+                    role="button"
+                >Edytuj lokalizacje</a
+                >
+                <a
+                    href="{{ url_for('main.history') }}"
+                    class="btn btn-secondary"
+                    role="button"
+                >Historia</a
+                >
+                <a
+                    href="{{ url_for('main.erd') }}"
+                    class="btn btn-secondary"
+                    role="button"
+                >ERD</a
+                >
+                <a
+                    href="{{ url_for('main.script') }}"
+                    class="btn btn-secondary"
+                    role="button"
+                >Skrypt</a
+                >
+            {% endif %}
+            {% if not current_user.is_authenticated %}
+                <a
+                    href="{{ url_for('auth.login') }}"
+                    class="btn btn-secondary"
+                    style="position: absolute; right: 20px;"
+                    role="button"
+                >Zaloguj</a
+                >
+            {% endif %}
+            {% if current_user.is_authenticated %}
+                <a
+                    href="{{ url_for('auth.logout') }}"
+                    class="btn btn-danger"
+                    role="button"
+                >Wyloguj</a
+                >
+            {% endif %}
         </form>
-      </div>
-    </nav>
-    {% block content %} {% endblock %}
-  </body>
+    </div>
+</nav>
+{% block content %} {% endblock %}
+</body>
 </html>

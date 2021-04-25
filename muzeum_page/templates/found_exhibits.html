@@ -3,53 +3,53 @@
 <link rel="stylesheet" href="../static/style.css"/>
 <header class="header" style="background-image: url('../static/images/bg_index.jpg')">
 <div>
-  {% if date %}
-    <h4 class="light-text">Stan na: {{ date }}</h4>
-  {% endif %}
-  <table class="table table-hover" style="width: 700px;">
-    <thead class="thead-dark">
-      <tr>
-        <th class="light-text" scope="col">Tytul</th>
-        <th class="light-text" scope="col">Artysta</th>
-        <th class="light-text" scope="col">Galeria</th>
-        <th class="light-text" scope="col">Typ</th>
-        <th class="light-text" scope="col">Wysokosc</th>
-        <th class="light-text" scope="col">Szerokosc</th>
-      </tr>
-    </thead>
-    <tbody>
     {% if date %}
-      {% for exhibit in exhibits %}
-        <tr>
-          <td class="light-text">{{ exhibit[0].tytul }}</td>
-          <td class="light-text">{{ exhibit[0].artysta.nazwisko }}</td>
-          {% if exhibit[1]%}
-            <td class="light-text">{{ exhibit[1].galeria.nazwa }}</td>
-          {% else %}
-            <td class="light-text">Magazyn</td>
-          {% endif %}
-          <td class="light-text">{{ exhibit[0].typ }}</td>
-          <td class="light-text">{{ exhibit[0].wysokosc }} cm</td>
-          <td class="light-text">{{ exhibit[0].szerokosc }} cm</td>
-        </tr>
-      {% endfor %}
-    {% else %}
-      {% for exhibit in exhibits %}
-        <tr>
-          <td class="light-text">{{ exhibit.tytul }}</td>
-          <td class="light-text">{{ exhibit.artysta.nazwisko }}</td>
-          {% if exhibit.galeria.nazwa %}
-            <td class="light-text">{{ exhibit.galeria.nazwa }}</td>
-          {% else %}
-            <td class="light-text">Magazyn</td>
-          {% endif %}
-          <td class="light-text">{{ exhibit.typ }}</td>
-          <td class="light-text">{{ exhibit.wysokosc }} cm</td>
-          <td class="light-text">{{ exhibit.szerokosc }} cm</td>
-        </tr>
-      {% endfor %}
+        <h4 class="light-text">Stan na: {{ date }}</h4>
     {% endif %}
-    </tbody>
-  </table>
+    <table class="table table-hover" style="width: 700px;">
+        <thead class="thead-dark">
+        <tr>
+            <th class="light-text" scope="col">Tytul</th>
+            <th class="light-text" scope="col">Artysta</th>
+            <th class="light-text" scope="col">Galeria</th>
+            <th class="light-text" scope="col">Typ</th>
+            <th class="light-text" scope="col">Wysokosc</th>
+            <th class="light-text" scope="col">Szerokosc</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if date %}
+        {% for exhibit in exhibits %}
+            <tr>
+                <td class="light-text">{{ exhibit[0].tytul }}</td>
+                <td class="light-text">{{ exhibit[0].artysta.nazwisko }}</td>
+                {% if exhibit[1]%}
+                    <td class="light-text">{{ exhibit[1].galeria.nazwa }}</td>
+                {% else %}
+                    <td class="light-text">Magazyn</td>
+                {% endif %}
+                <td class="light-text">{{ exhibit[0].typ }}</td>
+                <td class="light-text">{{ exhibit[0].wysokosc }} cm</td>
+                <td class="light-text">{{ exhibit[0].szerokosc }} cm</td>
+            </tr>
+        {% endfor %}
+        {% else %}
+        {% for exhibit in exhibits %}
+            <tr>
+                <td class="light-text">{{ exhibit.tytul }}</td>
+                <td class="light-text">{{ exhibit.artysta.nazwisko }}</td>
+                {% if exhibit.galeria.nazwa %}
+                    <td class="light-text">{{ exhibit.galeria.nazwa }}</td>
+                {% else %}
+                    <td class="light-text">Magazyn</td>
+                {% endif %}
+                <td class="light-text">{{ exhibit.typ }}</td>
+                <td class="light-text">{{ exhibit.wysokosc }} cm</td>
+                <td class="light-text">{{ exhibit.szerokosc }} cm</td>
+            </tr>
+        {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}

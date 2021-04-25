@@ -3,38 +3,38 @@
 <link rel="stylesheet" href="../static/style.css"/>
 <header class="header" style="background-image: url('../static/images/bg_magazine.jpg')">
 <div>
-  <h4 class="light-text">Wybierz, co chesz dodac:</h4><br>
-  <div>
-    <form method="POST" action="{{ url_for('main.new_post') }}">
-      <input
-        type="radio"
-        value="artist"
-        id="artist"
-        name="choice"
-        checked
-      />
-      <label class="light-text" for="artist">Artysta</label><br>
-      <input
-        type="radio"
-        value="exhibit"
-        id="exhibit"
-        name="choice"
-      />
-      <label class="light-text" for="exhibit">Eksponat</label><br>
-      <button type="submit" class="btn btn-secondary">Dodaj</button>
-    </form>
-  </div>
+    <h4 class="light-text">Wybierz, co chesz dodac:</h4><br>
+    <div>
+        <form method="POST" action="{{ url_for('main.new_post') }}">
+            <input
+                type="radio"
+                value="artist"
+                id="artist"
+                name="choice"
+                checked
+            />
+            <label class="light-text" for="artist">Artysta</label><br>
+            <input
+                type="radio"
+                value="exhibit"
+                id="exhibit"
+                name="choice"
+            />
+            <label class="light-text" for="exhibit">Eksponat</label><br>
+            <button type="submit" class="btn btn-secondary">Dodaj</button>
+        </form>
+    </div>
 </div>
 {% endblock %}
 
 <script>
-  $("input:checkbox").on('click', function() {
-    var $box = $(this);
-    if ($box.is(":checked")) {
-      $("input:checkbox[name='mobil[1][]']").prop("checked", false)
-      $box.prop("checked", true);
-    } else {
-      $box.prop("checked", false);
-    }
-  });
+    $("input:checkbox").on('click', function () {
+        var $box = $(this);
+        if ($box.is(":checked")) {
+            $("input:checkbox[name='mobil[1][]']").prop("checked", false)
+            $box.prop("checked", true);
+        } else {
+            $box.prop("checked", false);
+        }
+    });
 </script>

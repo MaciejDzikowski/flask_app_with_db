@@ -1,5 +1,5 @@
 .header {
-background-repeat: no-repeat;
+    background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     height: calc(100vh - 56px);

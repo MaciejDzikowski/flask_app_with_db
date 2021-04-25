@@ -3,15 +3,17 @@
 <link rel="stylesheet" href="../static/style.css"/>
 <header class="header" style="background-image: url('../static/images/bg_profile.jpg')">
 <div>
-  {% with msgs = get_flashed_messages() %}
-    {% if msgs %}
-      <div>
-        {% for msg in msgs %}
-          <h1 class="light-text">{{ msg }}</h1>
-        {% endfor %}
-      </div>
-    {% endif %}
-  {% endwith %}<br>
-  <h7 class="light-text">Teraz mozesz dodawac eksponaty, zmieniac ich lokalizacje i przegladac historie ekspozycji.</h7>
+    {% with msgs = get_flashed_messages() %}
+        {% if msgs %}
+            <div>
+                {% for msg in msgs %}
+                <h1 class="light-text">{{ msg }}</h1>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}<br>
+    <h7 class="light-text">Teraz mozesz dodawac eksponaty, zmieniac ich lokalizacje i przegladac historie
+        ekspozycji.
+    </h7>
 </div>
 {% endblock %}

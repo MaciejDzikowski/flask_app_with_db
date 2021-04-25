@@ -3,30 +3,30 @@
 <link rel="stylesheet" href="../static/style.css"/>
 <header class="header" style="background-image: url('../static/images/bg_history.jpg')">
 <div>
-  <h4 class="light-text">Historia dla {{ exhibit }}</h4>
-  <table class="table table-hover" style="width: 700px;">
-    <thead class="thead-dark">
-      <tr>
-        <th class="light-text" scope="col">Tytul</th>
-        <th class="light-text" scope="col">Galeria</th>
-        <th class="light-text" scope="col">Poczatek</th>
-        <th class="light-text" scope="col">Koniec</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for record in history_records %}
+    <h4 class="light-text">Historia dla {{ exhibit }}</h4>
+    <table class="table table-hover" style="width: 700px;">
+        <thead class="thead-dark">
         <tr>
-          <td class="light-text">{{ record.eksponat.tytul }}</td>
-          <td class="light-text">{{ record.galeria.nazwa }}</td>
-          <td class="light-text">{{ record.poczatek }}</td>
-          {% if record.koniec %}
-            <td class="light-text">{{ record.koniec }}</td>
-          {% else %}
-            <td class="light-text">dzis</td>
-          {% endif %}
+            <th class="light-text" scope="col">Tytul</th>
+            <th class="light-text" scope="col">Galeria</th>
+            <th class="light-text" scope="col">Poczatek</th>
+            <th class="light-text" scope="col">Koniec</th>
         </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+        </thead>
+        <tbody>
+        {% for record in history_records %}
+            <tr>
+                <td class="light-text">{{ record.eksponat.tytul }}</td>
+                <td class="light-text">{{ record.galeria.nazwa }}</td>
+                <td class="light-text">{{ record.poczatek }}</td>
+                {% if record.koniec %}
+                <td class="light-text">{{ record.koniec }}</td>
+                {% else %}
+                <td class="light-text">dzis</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}
